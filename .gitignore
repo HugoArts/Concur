@@ -1,0 +1,6 @@
+#ignore everything in build except Makefile
+build/*
+!build/Makefile
+
+#ignore vim swap files
+.*.swp
