@@ -3,10 +3,19 @@
 
 #include <stdint.h>
 
-/* The instruction type is 32 bits long */
-typedef uint32_t instr ;
+/* bit lengths and positions of various parts of an instruction.
+ * NOTE: shouldn't add up to more than 32 bits */
+#define SIZE_OP 5
+#define SIZE_A  9
+#define SIZE_B  9
+#define SIZE_C  9
 
-/* The list of opcodes */
+#define POS_OP 0
+#define POS_A  (POS_OP + SIZE_OP)
+#define POS_B  (POS_A + SIZE_A)
+#define POS_C  (POS_B + SIZE_B)
+
+typedef uint32_t instr ;
 typedef enum {
     NOP,
     MOVE,
@@ -14,18 +23,6 @@ typedef enum {
     INCR,
     DECR,
 } opcode;
-
-/* bit lengths and positions of various parts of an instruction.
- * NOTE: should add up to 32 bits */
-const int SIZE_OP = 5;
-const int SIZE_A = 9;
-const int SIZE_B = 9;
-const int SIZE_C = 9;
-
-const int POS_OP = 0;
-const int POS_A = 5;
-const int POS_B = 14;
-const int POS_C = 23;
 
 /* create a mask of 1's or 0's respectively, of length x.
  * starts with 0, inverts all bits to 1, shifts in x 0's.
