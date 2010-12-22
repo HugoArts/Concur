@@ -17,7 +17,7 @@ concur: $(OBJECTS)
 	$(CC) -S $(CFLAGS) $< -o $@
 
 # dependencies
-concur.c: instr.h
+main.o: instr.h
 
 .PHONY: clean
 clean:
