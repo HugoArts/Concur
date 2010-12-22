@@ -1,13 +1,13 @@
 VPATH= ../src
-CFLAGS= -Wall
-SOURCES= hello.c
+CFLAGS= -Wall -std=c99
+SOURCES= main.c
 OBJECTS= $(SOURCES:.c=.o)
 ASSEMBLED= $(SOURCES:.c=.s)
 
-all: hello
+all: concur
 assemble: $(ASSEMBLED)
 
-hello: $(OBJECTS)
+concur: $(OBJECTS)
 	$(CC) $^ -o $@
 
 %.o: %.c
@@ -17,8 +17,8 @@ hello: $(OBJECTS)
 	$(CC) -S $(CFLAGS) $< -o $@
 
 # dependencies
-hello.c: instr.h
+concur.c: instr.h
 
 .PHONY: clean
 clean:
-	rm -f hello $(OBJECTS) $(ASSEMBLED)
+	rm -f concur $(OBJECTS) $(ASSEMBLED)
