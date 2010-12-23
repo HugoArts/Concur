@@ -24,6 +24,14 @@ typedef enum {
     DECR,
 } opcode;
 
+const char * opnames[] = {
+    "NOP",
+    "MOVE",
+    "LOAD",
+    "INCR",
+    "DECR",
+};
+
 /* create a mask of 1's or 0's respectively, of length x.
  * starts with 0, inverts all bits to 1, shifts in x 0's.
  * invert again for mask1, leave as is for mask0. */
@@ -42,5 +50,10 @@ static inline opcode get_op(instr i) { return (opcode) ((i >> POS_OP) & mask1(SI
 static inline int getarg_A(instr i) { return (int) ((i >> POS_A) & mask1(SIZE_A)); }
 static inline int getarg_B(instr i) { return (int) ((i >> POS_B) & mask1(SIZE_B)); }
 static inline int getarg_C(instr i) { return (int) ((i >> POS_C) & mask1(SIZE_C)); }
+
+/* convenience functions for debugging */
+void print_instr(instr i) {
+    printf("%s\t $%d, $%d, $%d\n", opnames[get_op(i)], getarg_A(i), getarg_B(i), getarg_C(i));
+}
 
 #endif
