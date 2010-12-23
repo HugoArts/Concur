@@ -18,7 +18,10 @@ void sanity_checks(void) {
     /* make sure opcode and arguments fit in instruction */
     assert((SIZE_OP + SIZE_A + SIZE_B + SIZE_C) <= sizeof(instr) * 8);
 
-    /* check that make_instr works ok */
+    /* check that make_instr and get_ funcs works ok */
     instr i = make_instr(NOP, 1, 2, 3);
-    printf("instruction(%d, %d, %d, %d)\n", get_op(i), getarg_A(i), getarg_B(i), getarg_C(i));
+    assert(get_op(i) == NOP);
+    assert(getarg_A(i) == 1);
+    assert(getarg_B(i) == 2);
+    assert(getarg_C(i) == 3);
 }
