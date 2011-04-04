@@ -1,5 +1,5 @@
 VPATH= ../src
-CFLAGS= -Wall -std=c99
+CFLAGS= -O0 -Wall -std=c99
 SOURCES= main.c
 OBJECTS= $(SOURCES:.c=.o)
 ASSEMBLED= $(SOURCES:.c=.s)
