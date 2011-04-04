@@ -24,4 +24,6 @@ void sanity_checks(void) {
     assert(getarg_A(i) == 1);
     assert(getarg_B(i) == 2);
     assert(getarg_C(i) == 3);
+
+    printf("yay! All checks passed successfully\n");
 }
