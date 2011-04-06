@@ -1,6 +1,6 @@
 VPATH= ../src
 CFLAGS= -O0 -Wall -std=c99
-SOURCES= main.c
+SOURCES= main.c stack.c
 OBJECTS= $(SOURCES:.c=.o)
 ASSEMBLED= $(SOURCES:.c=.s)
 
@@ -18,6 +18,7 @@ concur: $(OBJECTS)
 
 # dependencies
 main.o: instr.h
+stack.o: stack.h
 
 .PHONY: clean
 clean:

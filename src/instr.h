@@ -2,7 +2,6 @@
 #define INSTR_H
 
 #include <stdint.h>
-
 /* bit lengths and positions of various parts of an instruction.
  * NOTE: shouldn't add up to more than 32 bits, and
  * there is an assertion in sanity_checks for this */
@@ -21,16 +20,14 @@ typedef enum {
     NOP,
     MOVE,
     LOAD,
-    INCR,
-    DECR,
+    CALL,
 } opcode;
 
 const char * opnames[] = {
     "NOP",
     "MOVE",
     "LOAD",
-    "INCR",
-    "DECR",
+    "CALL",
 };
 
 /* create a mask of 1's or 0's respectively, of length x.
